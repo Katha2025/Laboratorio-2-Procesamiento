@@ -178,6 +178,11 @@ La correlación cruzada sirve para ver qué tan relacionadas están dos señales
 
 <img width="324" height="723" alt="image" src="https://github.com/user-attachments/assets/415dabf4-0fef-4a90-a680-6f11b4c9aeb8" />
 
+# Parte C
+
+En la ultima parte de esta práctica, se capto una señal EOG (electrooculograma) del generador de señales con ayuda del DAQ. Para esto, se utilizó el siguiente codigo:
+
+
 
 
 
