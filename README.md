@@ -109,5 +109,69 @@ plt.show()
 
 <img width="618" height="729" alt="image" src="https://github.com/user-attachments/assets/076c096b-f186-448e-adb6-5dafbec3de8c" />
 
+# Parte B
+
+En la segunda parte de la práctica se definieron dos señales y se calculó su correlación cruzada, con el objetivo de medir el grado de similitud entre ellas. Una vez obtenida la secuencia resultante, se representó gráficamente para analizar su comportamiento y se discutió en qué situaciones resulta útil aplicar este procedimiento dentro del procesamiento digital de señales.
+Las señales cruzadas fueron:
+
+<img width="456" height="97" alt="image" src="https://github.com/user-attachments/assets/951f4523-681f-482f-ab5c-fef5f1285c34" />
+
+**1. Correlación Cruzada entre ambas señales**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parámetros
+Ts = 1.25e-3   # 1.25 ms
+f = 100        # Hz
+N = 9          # número de muestras
+n = np.arange(N)
+w0 = 2*np.pi*f*Ts  # frecuencia digital
+
+# Definición de señales
+x1 = np.cos(w0 * n)
+x2 = np.sin(w0 * n)
+
+print("x1[n] =", np.round(x1, 4))
+print("x2[n] =", np.round(x2, 4))
+
+# Correlación cruzada
+r12 = np.correlate(x1, x2, mode='full')
+lags = np.arange(-N+1, N)
+
+print("\nCorrelación cruzada r12[l]:")
+for l, val in zip(lags, r12):
+    print(f"l={l:2d}, r12={val:.4f}")
+
+# Gráfica
+plt.figure(figsize=(7,4))
+plt.stem(lags, r12, basefmt="r-")
+plt.xlabel("Retardo l (muestras)")
+plt.ylabel("r12[l]")
+plt.title("Correlación cruzada entre x1[n] y x2[n]")
+plt.grid(True)
+plt.show()
+```
+
+Los resultados obtenidos fueron:
+
+<img width="612" height="350" alt="image" src="https://github.com/user-attachments/assets/23c0617d-f1ce-4e66-a28a-22cebc70385b" />
+
+**2. Gráfica y secuencia resultante**
+
+<img width="618" height="361" alt="image" src="https://github.com/user-attachments/assets/78007f03-1d00-49c4-8e73-149c6fb3838b" />
+
+La correlación cruzada entre las señales (X_1[n]) y (X_2[n]) dio como resultado una secuencia con valores tanto positivos como negativos, los cuales cambian según el retardo (l). En la gráfica se nota que los picos más altos están cerca de (l = -2) y (l = 2), lo que significa que las señales se parecen bastante cuando una se desplaza respecto a la otra en esas puntos. También se observa que la secuencia es casi simétrica respecto al origen, indicando que la similitud aparece tanto para desplazamientos hacia la derecha como hacia la izquierda. En conclusión, ambas señales comparten características similares, pero estas coinciden en diferentes desfases temporales.
+
+
+**3. Importancia de la correlación cruzada en el procesamiento digital de señales**
+
+La correlación cruzada sirve para ver qué tan relacionadas están dos señales cuando una se corre en el tiempo, con ella se pueden detectar coincidencias, repeticiones o desfases entre ambas. En aplicaciones reales esto es  útil por ejemplo  en señales biomédicas permite analizar sincronización de ritmos, en telecomunicaciones ayuda a identificar una señal aunque esté contaminada con ruido, y en imágenes facilita encontrar similitudes entre patrones. En este ejercicio, permitió comprobar qué tanto se parecen las dos señales dependiendo del desplazamiento aplicado, mostrando de forma clara su relación temporal.
+
+
+
+
+
 
 
