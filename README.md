@@ -107,7 +107,12 @@ plt.tight_layout()
 plt.show()
 ```
 
-<img width="618" height="729" alt="image" src="https://github.com/user-attachments/assets/076c096b-f186-448e-adb6-5dafbec3de8c" />
+<img width="618" height="729" alt="image" src="https://github.com/user-attachments/assets/076c096b-f186-448e-adb6-5dafbec3de8c" 
+
+**Diagrama de Flujo parte A**
+
+<img width="298" height="721" alt="image" src="https://github.com/user-attachments/assets/6015dd48-7d08-4e04-8f7e-e17a5b86a7f3" />
+
 
 # Parte B
 
