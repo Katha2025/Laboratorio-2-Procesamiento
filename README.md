@@ -174,6 +174,10 @@ La correlación cruzada entre las señales (X_1[n]) y (X_2[n]) dio como resultad
 
 La correlación cruzada sirve para ver qué tan relacionadas están dos señales cuando una se corre en el tiempo, con ella se pueden detectar coincidencias, repeticiones o desfases entre ambas. En aplicaciones reales esto es  útil por ejemplo  en señales biomédicas permite analizar sincronización de ritmos, en telecomunicaciones ayuda a identificar una señal aunque esté contaminada con ruido, y en imágenes facilita encontrar similitudes entre patrones. En este ejercicio, permitió comprobar qué tanto se parecen las dos señales dependiendo del desplazamiento aplicado, mostrando de forma clara su relación temporal.
 
+**Diagrama de Flujo parte B**
+
+
+
 
 
 
