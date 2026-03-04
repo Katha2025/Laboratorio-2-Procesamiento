@@ -183,9 +183,126 @@ La correlación cruzada sirve para ver qué tan relacionadas están dos señales
 # Parte C
 
 En la ultima parte de esta práctica, se capto una señal EOG (electrooculograma) del generador de señales con ayuda del DAQ. Para esto, se utilizó el siguiente codigo:
+Para esta señal se calculó primero la frecuencia de Nyquist. Se tomó como referencia la frecuencia máxima de la señal EOG, que es aproximadamente 50 Hz, y se multiplicó por 2, obteniendo así una frecuencia de Nyquist de 100 Hz (50 Hz × 2).
+
+Luego, para realizar la digitalización, se utilizó una frecuencia de muestreo cuatro veces mayor que la de Nyquist, es decir, 400 Hz. Finalmente, se graficó la señal con una duración de 5 segundos, una frecuencia de muestreo de 400 Hz y un total de 2000 muestras, obteniendo el siguiente resultado:
+
+<img width="572" height="432" alt="image" src="https://github.com/user-attachments/assets/2994f3de-3b34-416a-ae3e-e6857b72d2e1" />
+
+Después de esto, la señal fue analizada estadísticamente calculando su media, mediana, desviación estándar, así como sus valores máximo y mínimo.
 
 
+```python
+#media
+media=np.mean(voltaje)
+print (f"Media: {media} ")
 
+#mediana
+mediana=np.median(voltaje)
+print (f"Mediana: {mediana} ")
+
+#desviación estandar
+desviacion_muestra=np.std(voltaje, ddof=1)
+print (f"Desviacion estandar: {desviacion_muestra} ")
+
+print(f"Máximo:", np.max(voltaje))
+print(f"Mínimo:", np.min(voltaje))
+
+print("Es una señal aleatoria, ya que depende de movimientos oculares y ruido fisiológico")
+print("Es aperiódica, porque los movimientos oculares no ocurren en ciclos regulares.")
+print("Aunque se digitaliza al muestrearla, se representa una señal originalmente análoga tomada con DAQ")
+
+```
+Los valores obtenidos fueron:
+
+<img width="723" height="140" alt="image" src="https://github.com/user-attachments/assets/c0db8426-8f08-4ccd-98b1-71334b705530" />
+
+La señal puede considerarse aleatoria, ya que está influenciada por los movimientos oculares y por el ruido fisiológico. Aunque un movimiento repetido puede producir una forma de onda similar, al tratarse de una señal EOG —de origen biológico— puede variar debido a factores como la respuesta individual del paciente.
+
+Además, es aperiódica porque los movimientos oculares no siguen un patrón cíclico regular. Finalmente, aunque se digitaliza al momento de muestrearla, en esencia corresponde a una señal originalmente análoga adquirida mediante un sistema DAQ.
+
+Ahora bien, se aplicó la transformada de Fourier:
+
+
+```python
+import matplotlib.pyplot as plt
+
+#centra señal en cero
+x = voltaje - np.mean(voltaje)
+#numero de muestras y frecuencia de muestreo
+N = len(x)
+fs = 400
+
+#funcion de transformada rapida de Fourier, rfft porque la señal es real y para devolver las frecuencias positivas
+X = np.fft.rfft(x)
+#vector de frecuencias para cada valor de la transformada, d=1/fs es el período de muestreo
+f = np.fft.rfftfreq(N, d=1/fs)
+
+#margnitud del espectro
+mag = np.abs(X) / N
+
+#grafica
+plt.figure()
+plt.plot(f, mag, color="red")
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("Magnitud")
+plt.title("Transformada de Fourier")
+plt.grid(True)
+plt.show()
+
+```
+
+<img width="550" height="430" alt="image" src="https://github.com/user-attachments/assets/6fbbefcf-9f98-4f53-a7f5-4cfa6fe58a15" />
+
+
+Además, se realizó la gráfica de la densidad espectral de potencia de la señal para analizar cómo se distribuye su energía en el dominio de la frecuencia.
+
+```python
+fs = 400
+N = len(voltaje)
+
+fft_vals = np.fft.fft(voltaje)
+fft_freq = np.fft.fftfreq(N, 1/fs)
+
+fft_vals = fft_vals[:N//2]
+fft_freq = fft_freq[:N//2]
+
+psd = (1/(fs*N)) * np.abs(fft_vals)**2
+psd[1:-1] *= 2   # <-- corrección clave
+
+plt.figure(figsize=(8,4))
+plt.semilogy(fft_freq, psd, color="blue")
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("Densidad espectral (V²/Hz)")
+plt.title("Densidad espectral de potencia")
+plt.grid()
+plt.show()
+```
+
+
+<img width="707" height="372" alt="image" src="https://github.com/user-attachments/assets/0c55da61-7507-44fb-957d-5f363d9ff05c" />
+
+
+También se calcularon la media, la mediana y la desviación estándar, pero esta vez en el dominio de la frecuencia, para analizar el comportamiento estadístico de la señal desde su contenido espectral.
+
+Los resultados obtenidos fueron:
+
+<img width="319" height="58" alt="image" src="https://github.com/user-attachments/assets/eb4c6981-3071-4a52-95c7-ee0861a561e7" />
+
+De igual manera, se realizó un histograma de frecuencias.
+
+```python
+plt.figure(figsize=(8, 4))
+plt.hist(f, bins=50, weights=mag, color='pink', edgecolor='green')
+plt.title("Histograma de Frecuencias")
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("Magnitud acumulada")
+plt.grid(True)
+plt.show()
+
+```
+
+<img width="678" height="378" alt="image" src="https://github.com/user-attachments/assets/cf2fe3ff-5053-451a-8cf6-2b1eea910d1b" />
 
 
 
