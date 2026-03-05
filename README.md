@@ -310,3 +310,25 @@ plt.show()
 
 
 
+**Parte B**
+
+En esta parte de la práctica se trabajó con dos señales discretas: una señal coseno  y una señal seno , ambas con una frecuencia de 100 Hz y un período de muestreo de . Estas dos señales tienen la misma frecuencia y forma de onda, pero presentan un desfase entre ellas, ya que el seno y el coseno están desplazados aproximadamente 90° en fase.
+
+Para analizar la relación entre estas señales se calculó la correlación cruzada, la cual permite medir qué tan parecidas son dos señales cuando una se desplaza en el tiempo respecto a la otra. A partir de los resultados obtenidos se observó que la correlación presenta valores positivos y negativos dependiendo del retardo aplicado. El valor máximo de correlación aparece aproximadamente en el retardo , con un valor cercano a 3.5, lo que indica que las señales se parecen más cuando una se desplaza dos muestras respecto a la otra. Por otro lado, el valor mínimo se observa alrededor de , con un valor aproximado de -3.5, lo cual indica una relación inversa entre las señales en ese punto.
+
+Al observar la gráfica de la correlación cruzada se nota que la secuencia tiene un comportamiento casi simétrico alrededor del origen. Además, cuando el retardo es cercano a cero, la correlación es prácticamente nula. Esto ocurre porque las señales seno y coseno, aunque tienen la misma frecuencia, están desfasadas, por lo que no coinciden cuando se comparan sin desplazamiento.
+
+Este análisis permite entender que ambas señales comparten características similares, pero su mayor coincidencia se presenta cuando una de ellas se desplaza ligeramente en el tiempo. En general, la correlación cruzada es una herramienta muy útil en el procesamiento digital de señales, ya que permite identificar similitudes, detectar desfases y analizar relaciones temporales entre señales. En aplicaciones reales, este tipo de análisis se utiliza en áreas como señales biomédicas, telecomunicaciones y procesamiento de imágenes para encontrar patrones, sincronizar señales o identificar información relevante dentro de una señal.
+
+**Parte C**
+
+En esta parte de la práctica se trabajó con dos señales discretas: una señal coseno  y una señal seno , ambas con una frecuencia de 100 Hz y un periodo de muestreo de . Estas dos señales tienen la misma frecuencia y una forma muy parecida, pero no están alineadas exactamente en el tiempo, ya que el seno y el coseno tienen un desfase aproximado de 90°.
+
+Para estudiar qué tan parecidas son estas señales se calculó la correlación cruzada, que es una herramienta del área de Procesamiento Digital de Señales. Esta técnica permite comparar dos señales mientras una de ellas se va desplazando en el tiempo, con el objetivo de encontrar en qué punto coinciden más.
+
+Al realizar el cálculo se obtuvo una secuencia de valores que cambian dependiendo del retardo aplicado. Se observó que el valor máximo de correlación aparece aproximadamente cuando el retardo es , con un valor cercano a 3.5. Esto significa que cuando una señal se desplaza dos muestras con respecto a la otra, ambas coinciden mejor en su forma. Por otro lado, el valor mínimo aparece alrededor de , con un valor cercano a −3.5, lo que indica que en ese desplazamiento las señales presentan un comportamiento opuesto.
+
+Al analizar la gráfica de la correlación también se puede notar que tiene una forma casi simétrica alrededor del origen. Además, cuando el retardo es cercano a cero, la correlación es aproximadamente igual a cero. Esto ocurre porque las funciones seno y coseno, aunque tienen la misma frecuencia, no coinciden exactamente cuando se comparan sin desplazamiento debido al desfase que existe entre ellas.
+
+En general, este resultado muestra que las dos señales están relacionadas, pero desplazadas en el tiempo. Por medio de la correlación cruzada fue posible identificar ese desfase y observar en qué punto las señales presentan mayor similitud. Esto demuestra cómo esta herramienta es útil para analizar relaciones temporales entre señales en diferentes aplicaciones del procesamiento de señales.
+
