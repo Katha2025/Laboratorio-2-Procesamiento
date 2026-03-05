@@ -391,3 +391,17 @@ En términos prácticos, la convolución se emplea con mayor frecuencia para mod
 
 # CONCLUSIONES
 
+1. A partir del desarrollo de la práctica fue posible comprender el funcionamiento y la importancia de la Convolución en señales discretas. Este proceso permitió observar cómo dos señales pueden combinarse para producir una tercera señal que describe la respuesta de un sistema ante una entrada determinada, evidenciando su utilidad en el análisis de sistemas lineales e invariantes en el tiempo.
+
+
+2. El cálculo y análisis de la Correlación cruzada permitió evaluar el grado de similitud entre dos señales cuando una de ellas se desplaza en el tiempo. A partir de los resultados obtenidos se identificó el retardo en el cual las señales presentan mayor coincidencia, lo que demuestra que esta herramienta es fundamental para detectar desfases y relaciones temporales entre señales.
+
+
+3. En el análisis de las señales seno y coseno se observó que, aunque ambas poseen la misma frecuencia, existe un desfase entre ellas. Esto se reflejó en los valores de correlación obtenidos, donde el máximo valor apareció cuando se aplicó un desplazamiento específico entre las señales, confirmando la relación de fase entre ambas funciones.
+
+
+4. El desarrollo de la práctica también permitió reforzar la comprensión de los métodos matemáticos utilizados en el análisis de señales discretas, así como la interpretación de resultados tanto numéricos como gráficos. La representación gráfica de la convolución y la correlación facilitó la identificación de patrones y comportamientos que no siempre son evidentes únicamente a partir de los cálculos.
+
+
+5. Finalmente, se evidenció que herramientas como la convolución y la correlación son fundamentales en múltiples aplicaciones del procesamiento de señales, incluyendo telecomunicaciones, procesamiento de imágenes y análisis de señales biomédicas. Por esta razón, el dominio de estos conceptos resulta esencial para el estudio y desarrollo de sistemas de análisis y procesamiento de información.
+
