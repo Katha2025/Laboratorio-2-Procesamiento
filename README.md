@@ -1,6 +1,6 @@
 # Laboratorio-2-Procesamiento
 
-# Objetivo de la practica
+# OBJETIVO DE LA PRÁCTICA 
 
 En esta práctica se desarrollaron tres conceptos fundamentales del procesamiento de señales: la convolución, la correlación y la transformada de Fourier. Inicialmente, se aplicó la convolución a señales construidas a partir de la cédula y el código de cada integrante, realizándola tanto de manera manual como mediante Python, lo que permitió analizar la respuesta de un sistema ante una entrada específica. Posteriormente, se estudió la correlación cruzada con el fin de comprender cómo se determina el grado de similitud entre dos señales. Más adelante, se generó una señal biológica que fue digitalizada siguiendo el criterio de Nyquist, y se examinaron sus principales características estadísticas. Finalmente, se empleó la transformada de Fourier para representar la señal en el dominio de la frecuencia y analizar su espectro, facilitando así una interpretación más completa de su comportamiento.
 
@@ -60,7 +60,7 @@ plt.show()
 <img width="675" height="725" alt="image" src="https://github.com/user-attachments/assets/80231478-e536-4492-b5a0-0f974a1aa1dd" />
 
 
-**3. Kathalina :**
+**2. Kathalina :**
 
 **-Convolución manual**
 
@@ -304,8 +304,9 @@ plt.show()
 
 <img width="678" height="378" alt="image" src="https://github.com/user-attachments/assets/cf2fe3ff-5053-451a-8cf6-2b1eea910d1b" />
 
+# RESULTADOS
 
-
+**Parte A**
 
 
 
