@@ -308,6 +308,15 @@ plt.show()
 
 **Parte A**
 
+En la primera parte de la práctica se trabajó con dos señales discretas para aplicar la operación de Convolución, la cual es una herramienta fundamental en el área de Procesamiento Digital de Señales. Esta operación permite determinar cómo una señal se ve modificada cuando pasa a través de un sistema o cuando interactúa con otra señal.
+
+Para realizar el procedimiento, primero se definieron dos secuencias discretas. Posteriormente se aplicó la fórmula de la convolución, que consiste en invertir una de las señales, desplazarla muestra por muestra y multiplicar los valores correspondientes de ambas señales. Luego, se suman esos productos para obtener cada uno de los valores de la señal resultante.
+
+Durante el cálculo se observa que, a medida que una señal se va desplazando sobre la otra, la cantidad de elementos que coinciden cambia. Al inicio solo coinciden pocos valores, por lo que la suma de productos es pequeña. A medida que el desplazamiento aumenta, se produce una mayor superposición entre las señales, lo que genera valores más altos en la señal resultante. Finalmente, cuando la señal sigue desplazándose, la superposición vuelve a disminuir y los valores obtenidos también se reducen.
+
+La secuencia resultante de la convolución representa cómo se combinan ambas señales a lo largo del tiempo. Además, el tamaño de la señal obtenida es mayor que el de las señales originales, lo cual es una característica propia de la convolución en señales discretas.
+
+En general, este procedimiento permite entender cómo una señal puede modificar a otra cuando interactúan dentro de un sistema. Por esta razón, la convolución es ampliamente utilizada en aplicaciones como el análisis de sistemas, el filtrado de señales y el procesamiento de información en diferentes áreas de la ingeniería.
 
 
 **Parte B**
@@ -331,4 +340,54 @@ Al realizar el cálculo se obtuvo una secuencia de valores que cambian dependien
 Al analizar la gráfica de la correlación también se puede notar que tiene una forma casi simétrica alrededor del origen. Además, cuando el retardo es cercano a cero, la correlación es aproximadamente igual a cero. Esto ocurre porque las funciones seno y coseno, aunque tienen la misma frecuencia, no coinciden exactamente cuando se comparan sin desplazamiento debido al desfase que existe entre ellas.
 
 En general, este resultado muestra que las dos señales están relacionadas, pero desplazadas en el tiempo. Por medio de la correlación cruzada fue posible identificar ese desfase y observar en qué punto las señales presentan mayor similitud. Esto demuestra cómo esta herramienta es útil para analizar relaciones temporales entre señales en diferentes aplicaciones del procesamiento de señales.
+
+
+# ANALISIS GENERAL
+
+En esta práctica se trabajó con herramientas fundamentales del área de Procesamiento Digital de Señales, específicamente la Convolución, la Correlación cruzada y la Transformada de Fourier. Estas herramientas permiten analizar señales desde diferentes enfoques y entender mejor su comportamiento.
+
+A partir de los resultados obtenidos se pudo observar cómo la convolución permite determinar la respuesta de un sistema cuando se le aplica una señal de entrada. Esta operación combina dos señales y muestra cómo una afecta a la otra a medida que se desplaza en el tiempo. En el análisis de señales biomédicas, esto es muy útil para modelar sistemas fisiológicos o aplicar filtros que permitan mejorar la calidad de las señales registradas.
+
+Por otro lado, la correlación cruzada permitió evaluar el grado de similitud entre dos señales cuando una de ellas se desplaza en el tiempo. En los resultados obtenidos se observó que el valor de la correlación cambia dependiendo del retardo aplicado, lo que permite identificar el punto donde ambas señales presentan mayor coincidencia. Este tipo de análisis es especialmente útil para detectar patrones o encontrar retrasos temporales entre señales relacionadas.
+
+En cuanto a la transformada de Fourier, esta herramienta permitió analizar las señales desde el dominio de la frecuencia en lugar del dominio del tiempo. Gracias a este enfoque es posible identificar las frecuencias que componen una señal y entender mejor su estructura. Esto resulta especialmente importante cuando se trabajan señales complejas o cuando se desea eliminar ruido mediante filtrado.
+
+En el contexto de señales biomédicas, estas herramientas tienen un gran alcance, ya que permiten procesar registros fisiológicos como electrocardiogramas o señales musculares para extraer información relevante. Sin embargo, también presentan algunas limitaciones. Por ejemplo, muchas técnicas de procesamiento de señales asumen que las señales son estacionarias o que el ruido tiene ciertas características específicas, lo cual no siempre ocurre en señales reales del cuerpo humano. Además, en aplicaciones en tiempo real puede existir una limitación relacionada con el costo computacional de algunos algoritmos.
+
+En general, los resultados obtenidos en la práctica permitieron comprender cómo estas herramientas matemáticas se complementan entre sí para analizar señales desde diferentes perspectivas, facilitando su interpretación y procesamiento en aplicaciones reales.
+
+# PREGUNTAS A DISCUCION
+
+**1. ¿Qué utilidad poseen herramientas como la convolución y la correlación en áreas como procesamiento de imágenes?**
+
+Herramientas como la convolución y la correlación son ampliamente utilizadas en el procesamiento de imágenes porque permiten analizar y modificar la información contenida en una imagen digital.
+
+La convolución se utiliza principalmente para aplicar filtros a las imágenes. Por ejemplo, mediante esta operación es posible suavizar una imagen para reducir el ruido, resaltar bordes, detectar contornos o mejorar ciertos detalles. Esto se logra combinando la imagen con una matriz llamada filtro o máscara que se desplaza sobre todos los píxeles.
+
+Por otro lado, la correlación se utiliza para comparar patrones dentro de una imagen. Esta técnica permite identificar si una cierta forma o estructura aparece dentro de otra imagen más grande. Por esta razón es muy utilizada en reconocimiento de objetos, detección de patrones y análisis de imágenes médicas.
+
+En aplicaciones biomédicas, por ejemplo, estas herramientas permiten mejorar imágenes obtenidas por diferentes técnicas de diagnóstico, facilitando la identificación de estructuras anatómicas o posibles anomalías.
+
+**2. ¿En cuáles contextos de aplicación la transformada de Fourier ofrece características con mayor poder discriminativo que las del dominio temporal?**
+
+La transformada de Fourier ofrece un mayor poder discriminativo cuando es importante analizar las frecuencias que componen una señal. Mientras que en el dominio del tiempo solo se observa cómo cambia la señal a lo largo del tiempo, en el dominio de la frecuencia es posible identificar qué componentes sinusoidales la forman.
+
+Esto resulta especialmente útil en situaciones donde diferentes señales pueden tener una apariencia similar en el tiempo, pero presentan diferencias claras en sus frecuencias. Por ejemplo, en el análisis de señales biomédicas, la transformada de Fourier permite identificar ritmos específicos dentro de señales como el electrocardiograma o el electroencefalograma.
+
+También es muy utilizada en telecomunicaciones, procesamiento de audio y análisis de vibraciones mecánicas, ya que permite detectar frecuencias dominantes, identificar ruido o estudiar la distribución de energía de la señal en el espectro.
+
+
+**3. ¿En qué se diferencia la correlación cruzada de la convolución?**
+
+Aunque la correlación cruzada y la convolución son operaciones matemáticas muy similares, tienen objetivos diferentes en el análisis de señales.
+
+La convolución se utiliza principalmente para describir cómo responde un sistema a una señal de entrada. En esta operación una de las señales se invierte en el tiempo antes de realizar el desplazamiento y la multiplicación entre ambas señales.
+
+En cambio, la correlación cruzada se utiliza para medir el grado de similitud entre dos señales. En este caso no se realiza la inversión temporal de la señal, sino que simplemente se desplaza una señal respecto a la otra para determinar en qué punto presentan mayor coincidencia.
+
+En términos prácticos, la convolución se emplea con mayor frecuencia para modelar sistemas o aplicar filtros, mientras que la correlación cruzada se utiliza para detectar patrones, identificar retrasos temporales o comparar señales.
+
+
+
+# CONCLUSIONES
 
